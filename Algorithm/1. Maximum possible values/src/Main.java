@@ -15,9 +15,7 @@ public class Main {
 	
 	class Solution {
 		public static long maxAlternatingSum(int[] nums) {
-long result = 0;
-
-			
+		
 			long evenSum = nums[0];
 			long oddSum = 0;
 			
@@ -53,9 +51,9 @@ long result = 0;
 				
 			}
             if (evenSize>oddSize){
-                return (evenSum-oddSum);
+                return ((evenSum-oddSum)%1000000000);
             }else{
-                return (evenSum-oddSum+prevOdd);
+                return ((evenSum-oddSum+prevOdd)%1000000000);
             }
 		}
 	}
