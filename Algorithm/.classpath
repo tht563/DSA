@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="1. Maximum possible values/src"/>
+	<classpathentry kind="src" path="2. The minimum number of additional letters/src"/>
+	<classpathentry kind="src" path="3. The maximum sum of two equal-sum number/src"/>
+	<classpathentry kind="output" path="1. Maximum possible values/bin"/>
+</classpath>
