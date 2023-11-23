@@ -26,11 +26,7 @@ public class Main {
 	        int sellPrice = 0;
 	        int sellIndex = 0;
 
-	        for (int i=1; i<prices.length; i++){
-	            if ((buyPrice>prices[i])&&(sellPrice==0)){
-	                buyPrice = prices[i];
-	                continue;
-	            }  
+	        for (int i=1; i<prices.length; i++){ 
 	            if ((prices[i]<supBuyPrice)&&(prices[i]<buyPrice)){
 	                supBuyPrice = prices[i];
 	                supIndex = i;
