@@ -25,38 +25,44 @@ public class Main {
 			Set <Character> appear = new HashSet<>();
 			Set <Character> waiting = new HashSet<>();
 			
-			for (int i=0; i<S.length();i++) {
-				if ((((int)S.charAt(i)<90)&&(lower[(int)S.charAt(i)-65]==0))||(((int)S.charAt(i)>90)&&(upper[(int)S.charAt(i)-97]==0))) {
-					if ((waiting.size()==0)&&(count<result)&&(count!=0)) {
-						result = count;
+			for (int i=0; i<S.length()-1;i++) {
+				appear.clear();
+				waiting.clear();
+				count=0;
+				for (int j=i;j<S.length();j++) {
+					if (((((int)S.charAt(j)<91)&&(upper[(int)S.charAt(j)-65]==0))||(((int)S.charAt(j)>91)&&(lower[(int)S.charAt(j)-97]==0)))||((waiting.size()==0)&&(count>0))) {
+						if ((waiting.size()==0)&&(count>0)&&(count<result)){
+							result = count;
+						}
+						appear.clear();
+						waiting.clear();
+						count=0;
+						break;
 					}
-					count = 0;
-					appear.clear();
-					waiting.clear();
-					continue;
-				}
-				
-				if (!appear.contains(S.charAt(i))) {
-					appear.add(S.charAt(i));
-				}
-				if (waiting.contains(S.charAt(i))) {
-					waiting.remove(S.charAt(i));
-				}
-				if (((int)S.charAt(i)>91)&&(!appear.contains(Character.toUpperCase(S.charAt(i))))) {
-					waiting.add(Character.toUpperCase(S.charAt(i)));
-				}
-				if (((int)S.charAt(i)<91)&&(!appear.contains(Character.toLowerCase(S.charAt(i))))) {
-					waiting.add(Character.toLowerCase(S.charAt(i)));
-				}
-				count++;
-				
-				if (i==S.length()-1) {
-					if ((waiting.size()==0)&&(count<result)&&(count!=0)) {
-						result = count;
+					if (!appear.contains(S.charAt(j))) {
+						appear.add(S.charAt(j));
+					}
+					if (waiting.contains(S.charAt(j))) {
+						waiting.remove(S.charAt(j));
+					}
+					if (((int) S.charAt(j)>91)&&(!appear.contains(Character.toUpperCase(S.charAt(j))))) {
+						waiting.add(Character.toUpperCase(S.charAt(j)));
+					}
+					if (((int) S.charAt(j)<91)&&(!appear.contains(Character.toLowerCase(S.charAt(j))))) {
+						waiting.add(Character.toLowerCase(S.charAt(j)));
+					}
+					count++;	
+					if (j==S.length()-1) {
+						if ((waiting.size()==0)&&(count>0)&&(count<result)){
+							result = count;
+						}
+					}
+					if ((count>result)&&(result!=Integer.MAX_VALUE)) {
+						break;
 					}
 				}
-				
 			}
+			
 			if (result == Integer.MAX_VALUE) {
 				return -1;
 			}else {
