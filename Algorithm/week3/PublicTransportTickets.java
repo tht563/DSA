@@ -15,10 +15,10 @@ public class PublicTransportTickets {
 				int buy7 = Integer.MAX_VALUE;
 				int buy30 = Integer.MAX_VALUE;
 				if (i-7>=0) {
-				buy7 = prices[i-7] +7;
+					buy7 = prices[i-7] +7;
 				}
 				if (i-30>=0) {
-				buy30 = prices[i-30] +25;
+					buy30 = prices[i-30] +25;
 				}
 				prices[i] = Math.min(buy1, Math.min(buy7, buy30));
 			}else {
